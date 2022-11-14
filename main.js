@@ -6,21 +6,22 @@ function tinhDiem(){
     var diem1=parseInt(document.getElementById("bai1_mon1").value);
     var diem2=parseInt(document.getElementById("bai1_mon2").value);
     var diem3=parseInt(document.getElementById("bai1_mon3").value);
-    var diemTong=diem1+diem2+diem3+diemKhuvuc+diemDoiTuong;
-    var output=document.getElementById("bai1_output");
+    //Lấy về điểm chuẩn, điểm khu vực, điểm đối tượng và điểm các môn dưới dạng số (có thập phân) bằng hàm parseInt
+
+    var diemTong=diem1+diem2+diem3+diemKhuvuc+diemDoiTuong;//Tính điểm tổng
+    var output=document.getElementById("bai1_output"); //Khởi tạo giá trị cho output
     console.log(diemTong);
-    //Khai báo biến, lấy thông tin từ input
     //Bắt đầu kiểm tra điều kiện
-    if (diem1==0 || diem2==0 || diem3==0){
+    if (diem1==0 || diem2==0 || diem3==0){ //Bắt đầu kiểm tra điều kiện, nếu 1 trong 3 môn bị liệt thì sẽ đánh loại
         console.log("Truot");
         output.innerHTML="Không trúng tuyển, vì có một hoặc nhiều môn bị 0 điểm";
         return
     }
-    if (diemTong>=diemChuan){
+    if (diemTong>=diemChuan){   //Nếu điểm >= điểm chuẩn thì đánh đạt
         output.innerHTML="Trúng truyển"
     }
     else{
-        output.innerHTML="Không trúng truyển, vì tổng điểm thấp hơn điểm chuẩn"
+        output.innerHTML="Không trúng truyển, vì tổng điểm thấp hơn điểm chuẩn" // Đánh trượt vì thiếu điểm
     }
 }
 //Bài 2
